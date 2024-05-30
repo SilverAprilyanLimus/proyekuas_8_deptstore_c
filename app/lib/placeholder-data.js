@@ -1,7 +1,4 @@
 // This file contains placeholder data that you'll be replacing with real data in the Data Fetching chapter:
-
-const { date } = require("zod");
-
 // https://nextjs.org/learn/dashboard-app/fetching-data
 const users = [
   {
@@ -14,238 +11,90 @@ const users = [
 
 const customers = [
   {
-    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
-    name: 'Rendi Fauman',
-    phone_number: '08123',
-    tanggal_lahir: '2004-03-05' ,
-  },
-  {
-    id: '3958dc9e-742f-4377-85e9-fec4b6a6442a',
-    name: 'Aurelia Kurnia',
-    phone_number: '08133',
-    tanggal_lahir: '2004-07-18' ,
-  },
-  {
-    id: '3958dc9e-737f-4377-85e9-fec4b6a6442a',
+  
     name: 'Felix 40',
     phone_number: '08404040',
     tanggal_lahir: '2004-10-22' ,
+    image_url: '/customers/balazs-orban.png',
   },
   {
-    id: '50ca3e18-62cd-11ee-8c99-0242ac120002',
-    name: 'Rendi Fauman',
-    phone_number: '08404040',
-    tanggal_lahir: '2004-10-22' ,
-  },
-  {
-    id: '3958dc9e-787f-4377-85e9-fec4b6a6442a',
-    name: 'Steph Dietz',
-    phone_number: '08404040',
-    tanggal_lahir: '2004-10-22' ,
-  },
-  {
-    id: '76d65c26-f784-44a2-ac19-586678f7c2f2',
+  
     name: 'Michael Novotny',
     phone_number: '0834040',
     tanggal_lahir: '2004-11-12' ,
+    image_url: '/customers/balazs-orban.png',
   },
   {
-    id: 'd6e15727-9fe1-4961-8c5b-ea44a9bd81aa',
+ 
     name: 'Evil Rabbit',
     phone_number: '0843200',
     tanggal_lahir: '2004-03-02' ,
+    image_url: '/customers/balazs-orban.png',
   },
   {
-    id: '126eed9c-c90c-4ef6-a4a8-fcf7408d3c66',
+
     name: 'Emil Kowalski',
     phone_number: '08404040',
     tanggal_lahir: '2007-04-22' ,
-  },
-  {
-    id: 'CC27C14A-0ACF-4F4A-A6C9-D45682C144B9',
-    name: 'Amy Burns',
-    phone_number: '084090',
-    tanggal_lahir: '2002-07-02' ,
-  },
-  {
-    id: '13D07535-C59E-4157-A011-F8D2EF4E0CBB',
-    name: 'Balazs Orban',
-    phone_number: '0812040',
-    tanggal_lahir: '2001-11-30' ,
+    image_url: '/customers/balazs-orban.png',
   },
 ];
 
 const products = [
   {
-    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
+    
     product_name: 'Oversized Shirt A',
     price: 15,
     bahan: 'cotton' ,
   },
   {
-    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
     product_name: 'Oversized Shirt B',
     price: 15 ,
     bahan: 'cotton' ,
   },
   {
-    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
     product_name: 'Oversized Hoddie A',
     price: 21 ,
     bahan: 'cotton' ,
   },
   {
-    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
     product_name: 'Work Shirt A',
     price: 7 ,
     bahan: 'Polyester' ,
-  },
-  {
-    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
-    product_name: 'Jeans Pant A',
-    price: 12 ,
-    bahan: 'Denim' ,
-  },
-  {
-    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
-    product_name: 'Denim Jacket',
-    price: 26,
-    bahan: 'Demin' ,
-  },
-  {
-    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
-    product_name: 'Casual Pants A',
-    price: 9 ,
-    bahan: 'silk' ,
-  },
-  {
-    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
-    product_name: 'Short Pants A',
-    price: 7 ,
-    bahan: 'Silk' ,
-  },
-  {
-    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
-    product_name: 'Short Pants B',
-    price: 5 ,
-    bahan: 'Denim' ,
-  },
-  {
-    id: '3958dc9e-712f-4377-85e9-fec4b6a6442a',
-    product_name: 'Warm Cloth A',
-    price: 13 ,
-    bahan: 'Wool' ,
   },
 ];
 
 const transactions= [
   {
-    customer_id: customers[0].id,
+    customer_id: 'f6cbbdf2-2cb0-41d1-adeb-e35437644ba1',
+    product_id: '78bbe7a5-124a-4551-8a0f-5170cab3e456',
     phone_number: '08123',
-    total_paid: 45,  
+    total_paid: 21,  
     date: '2024-05-20',
   },
   {
-    customer_id: customers[1].id,
+    customer_id: '93123a6e-2d9a-4b82-93f5-8a8ad9d05a19',
+    product_id: '78bbe7a5-124a-4551-8a0f-5170cab3e456',
     phone_number: '08123',
-    total_paid: 12,
+    total_paid: 15,
     date: '2024-05-20',
   },
   {
-    customer_id: customers[4].id,
-    phone_number: '08123',
-    total_paid: 56,
+    customer_id: '5346547a-38a2-46fd-9c0d-d8e0a80eb376',
+    product_id: '42c4addc-dafe-4bdc-96c3-13cbf70db9ff',
+        phone_number: '08123',
+    total_paid: 21,
     date: '2024-05-20',
   },
   {
-    customer_id: customers[3].id,
+    customer_id:' 7979c7e9-c535-4ddc-98b0-ea4a0abcb882',
+    product_id: '7486e288-efd9-436e-8642-8dd49ef17671',
     phone_number: '08123',
-    total_paid: 32,
-    date: '2024-05-20',
-  },
-  {
-    customer_id: customers[5].id,
-    phone_number: '08123',
-    total_paid: 78,
-    date: '2024-05-20',
-  },
-  {
-    customer_id: customers[7].id,
-    phone_number: '08123',
-    total_paid: 11,
-    date: '2024-05-20',
-  },
-  {
-    customer_id: customers[6].id,
-    phone_number: '08123',
-    total_paid: 26,
-    date: '2024-05-20',
-  },
-  {
-    customer_id: customers[3].id,
-    phone_number: '08123',
-    total_paid: 16,
-    date: '2024-05-20',
-  },
-  {
-    customer_id: customers[4].id,
-    phone_number: '08123',
-    total_paid: 34,
-    date: '2024-05-20',
-  },
-  {
-    customer_id: customers[5].id,
-    phone_number: '08123',
-    total_paid: 28,
-    date: '2024-05-20',
-  },
-  {
-    customer_id: customers[1].id,
-    phone_number: '08123',
-    total_paid: 90,
-    date: '2024-05-20',
-  },
-  {
-    customer_id: customers[5].id,
-    phone_number: '08123',
-    total_paid: 113,
-    date: '2024-05-20',
-  },
-  {
-    customer_id: customers[2].id,
-    phone_number: '08123',
-    total_paid: 13,
-    date: '2024-05-20',
-  },
-  {
-    customer_id: customers[0].id,
-    phone_number: '08123',
-    total_paid: 9,
-    date: '2024-05-20',
-  },
-  {
-    customer_id: customers[2].id,
-    phone_number: '08123',
-    total_paid: 19,
+    total_paid: 21,
     date: '2024-05-20',
   },
 ];
 
-
-const revenue = [
-  { month: 'Jan', revenue: 2000 },
-  { month: 'Feb', revenue: 1800 },
-  { month: 'Mar', revenue: 2200 },
-  { month: 'Apr', revenue: 2500 },
-  { month: 'May', revenue: 2300 },
-  { month: 'Jun', revenue: 3200 },
-  { month: 'Jul', revenue: 3500 },
-  { month: 'Aug', revenue: 3700 },
-  { month: 'Sep', revenue: 2500 },
-  { month: 'Oct', revenue: 2800 },
-  { month: 'Nov', revenue: 3000 },
-  { month: 'Dec', revenue: 4800 },
-];
 
 module.exports = {
   users,
