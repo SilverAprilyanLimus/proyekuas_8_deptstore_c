@@ -252,4 +252,5 @@ module.exports = {
   customers,
   transactions,
   products,
+  revenue
 };
