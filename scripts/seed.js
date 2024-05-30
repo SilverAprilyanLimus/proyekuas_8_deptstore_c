@@ -85,7 +85,7 @@ async function seedUsers(client) {
   }
 }
 
-async function seedInvoices(client) {
+async function seedTransactions(client) {
   try {
     await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
 
@@ -135,7 +135,7 @@ async function seedCustomers(client) {
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
         phone_number VARCHAR(255) NOT NULL,
-        tanggal_lahir VARCHAR(255) NOT NULL
+        tanggal_lahir DATE NOT NULL
       );
     `;
 
