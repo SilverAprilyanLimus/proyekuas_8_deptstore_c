@@ -10,7 +10,7 @@ export default function Page() {
     <main className="relative inset-0 bg-gradient-to-r from-transparent to-black z-1 flex min-h-screen flex-col p-6">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/bg-home1.jpg"
+          src="/bg-home.jpg"
           layout="fill"
           objectFit="cover"
           className="hidden md:block"
@@ -21,13 +21,13 @@ export default function Page() {
       <header className='absolute top-0 right-5'>
         <Link
           href="/login"
-          className="flex items-center gap-1 mt-5 rounded-3xl bg-opacity-75 px-10 border border-1 py-3 text-sm font-medium text-white transition hover:bg-gray-600 md:text-base hidden md:block"
+          className="flex items-center gap-1 mt-5 rounded-3xl bg-opacity-75 px-10 border border-1 py-3 text-sm font-medium text-white transition hover:bg-gray-600 md:text-base md:block"
         >
           <span>Login</span>
         </Link>
       </header>
 
-      <div className="relative z-10 flex h-20 items-center rounded-full overflow-hidden w-16 h-16 border-4 border-orange-400  ">
+      <div className="relative z-10 flex h-20 items-center rounded-full overflow-hidden w-16 border-4 border-orange-400  ">
         <Image
           src="/logo.jpg"
           alt="Akiong Store Logo"

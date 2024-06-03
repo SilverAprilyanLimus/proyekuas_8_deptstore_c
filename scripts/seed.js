@@ -4,6 +4,7 @@ const {
   customers,
   transactions,
   products,
+  revenue,
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
@@ -15,21 +16,18 @@ async function seedProducts(client) {
     const createTable = await client.sql`
       CREATE TABLE IF NOT EXISTS products(
         id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-        product_name VARCHAR(255) NOT NULL,
+        name VARCHAR(255) NOT NULL,
         price INT NOT NULL,
         bahan VARCHAR(255) NOT NULL
-        
       );
     `;
-
     console.log(`Created "products" table`);
-
     // Insert data into the "products" table
     const insertedProducts= await Promise.all(
       products.map(async (products) => {
         return client.sql`
-        INSERT INTO products (product_name, price, bahan)
-        VALUES (${products.product_name}, ${products.price}, ${products.bahan})
+        INSERT INTO products (name, price, bahan)
+        VALUES (${products.name}, ${products.price}, ${products.bahan})
         ON CONFLICT (id) DO NOTHING;
       `;
       }),
@@ -46,9 +44,6 @@ async function seedProducts(client) {
     throw error;
   }
 }
-
-
-
 
 async function seedUsers(client) {
   try {
@@ -97,8 +92,8 @@ async function seedTransactions(client) {
     const createTable = await client.sql`
     CREATE TABLE IF NOT EXISTS transactions (
     id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
-    customer_id VARCHAR(255) NOT NULL,
-    product_id VARCHAR(255) NOT NULL,
+    customer_id UUID NOT NULL,
+    product_id UUID NOT NULL,
     phone_number VARCHAR(255) NOT NULL,
     total_paid INT NOT NULL,
     date DATE NOT NULL
@@ -113,7 +108,8 @@ async function seedTransactions(client) {
         (transaction) => client.sql`
         INSERT INTO transactions (product_id ,customer_id,phone_number,total_paid, date)
         VALUES (${transaction.customer_id},${transaction.customer_id}, ${transaction.phone_number}, ${transaction.total_paid}, ${transaction.date})
-        ON CONFLICT (id) DO NOTHING;
+        ON 
+        3333333333333333333333333333333333CONFLICT (id) DO NOTHING;
       `,
       ),
     );
@@ -144,7 +140,6 @@ async function seedCustomers(client) {
         image_url VARCHAR(255) NOT NULL
       );
     `;
-
     console.log(`Created "customers" table`);
 
     // Insert data into the "customers" table
@@ -169,6 +164,45 @@ async function seedCustomers(client) {
   }
 }
 
+
+async function seedRevenue(client) {
+  try {
+    // Create the "revenue" table if it doesn't exist
+    const createTable = await client.sql`
+      CREATE TABLE IF NOT EXISTS revenue (
+        month VARCHAR(4) NOT NULL UNIQUE,
+        revenue INT NOT NULL
+      );
+    `;
+
+    console.log(`Created "revenue" table`);
+
+    // Insert data into the "revenue" table
+    const insertedRevenue = await Promise.all(
+      revenue.map(
+        (rev) => client.sql`
+        INSERT INTO revenue (month, revenue)
+        VALUES (${rev.month}, ${rev.revenue})
+        ON CONFLICT (month) DO NOTHING;
+      `,
+      ),
+    );
+    
+
+    console.log(`Seeded ${insertedRevenue.length} revenue`);
+
+    return {
+      createTable,
+      revenue: insertedRevenue,
+    };
+  } catch (error) {
+    console.error('Error seeding revenue:', error);
+    throw error;
+  }
+}
+
+
+
 async function main() {
   const client = await db.connect();
 
@@ -176,10 +210,12 @@ async function main() {
   await seedCustomers(client);
   await seedProducts  (client);
   await seedTransactions(client);
-  
+  await seedRevenue(client);
 
   await client.end();
 }
+
+
 
 main().catch((err) => {
   console.error(

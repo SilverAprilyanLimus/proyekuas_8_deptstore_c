@@ -15,6 +15,21 @@ export type Customer = {
   email: string;
   image_url: string;
 };
+export type Product = {
+  id: string;
+  name: string;
+  price:number;
+  bahan:string;
+};
+
+export type transactions = {
+  id: string;
+  customer_id: string;
+  products_id: string;
+  phone_number: string;
+  total_paid: number;
+  date: string;
+};
 
 export type Invoice = {
   id: string;
@@ -54,31 +69,85 @@ export type InvoicesTable = {
   amount: number;
   status: 'pending' | 'paid';
 };
+export type TransactionsTable = {
+  name: string;
+  id: string;
+  customer_id: string;
+  products_id: string;
+  phone_number: string;
+  total_paid: number;
+  date: string;
+  price: number;
+  bahan: string;
+};
+
+
+export type TransactionsTableType = {
+  id: string;
+  name: string;
+  
+  date: string;
+  phone_number: string;
+  tanggal_lahir: Date;
+  image_url: string;
+  total_paid: number;
+};
 
 export type CustomersTableType = {
   id: string;
   name: string;
-  email: string;
+  price: number;
+  phone_number: string;
+  tanggal_lahir: Date;
   image_url: string;
   total_invoices: number;
   total_pending: number;
   total_paid: number;
 };
 
+export type ProductsTableType = {
+  id: string;
+  name: string;
+  price: number;
+  bahan: string;
+
+};
+
 export type FormattedCustomersTable = {
   id: string;
   name: string;
-  email: string;
+  
   image_url: string;
+  tanggal_lahir: string;
+  phone_number: string;
   total_invoices: number;
   total_pending: string;
   total_paid: string;
+};
+export type FormattedTransactionsTable = {
+  id: string;
+  customer_id: string;
+  product_id: string;
+  total_paid: string;
+  date: string;
+};
+export type FormattedProductsTable = {
+  id: string;
+  name: string;
+  price: number;
+  bahan: string;
 };
 
 export type CustomerField = {
   id: string;
   name: string;
 };
+
+export type ProductField = {
+  id: string;
+  name: string;
+};
+
 
 export type InvoiceForm = {
   id: string;
