@@ -12,11 +12,19 @@ import { fetchRevenue } from '@/app/lib/data';
 
 export default async function RevenueChart() {
   const revenue = await fetchRevenue();
+<<<<<<< HEAD
 
   const chartHeight = 350;
 
   const { yAxisLabels, topLabel } = generateYAxis(revenue);
 
+=======
+
+  const chartHeight = 100;
+
+  const { yAxisLabels, topLabel } = generateYAxis(revenue);
+
+>>>>>>> 928a016 (asdasdasd)
   if (!revenue || revenue.length === 0) {
     return <p className="mt-4 text-gray-400">No data available.</p>;
   }

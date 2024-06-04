@@ -5,7 +5,6 @@ import {
   ProductField,
   InvoiceForm,
   TransactionsTable,
-  LatestInvoiceRaw,
   User,
   Revenue,
   ProductsTableType,
@@ -228,7 +227,7 @@ export async function getUser(email: string) {
 
 export async function fetchFilteredProducts(query: string) {
   try {
-    await new Promise((resolve) => setTimeout(resolve, 3000));
+    await new Promise((resolve) => setTimeout(resolve, 1000));
     const data = await sql<ProductsTableType>`
     SELECT
       products.id,
@@ -236,7 +235,7 @@ export async function fetchFilteredProducts(query: string) {
       products.price,
       products.bahan,
     FROM products
-    LEFT JOIN transactions ON products.product_id = transactions.id
+    LEFT JOIN transactions ON products.product_id = customers.id
     WHERE
       products.name ILIKE ${`%${query}%`} OR
       products.bahan ILIKE ${`%${query}%`}

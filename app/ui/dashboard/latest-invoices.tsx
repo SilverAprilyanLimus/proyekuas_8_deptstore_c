@@ -2,12 +2,22 @@ import { ArrowPathIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
+<<<<<<< HEAD
 import { LatestCustomer } from '@/app/lib/definitions';
 import { fetchLatestCustomers } from '@/app/lib/data';
 
   
 export default async function LatestCustomers(){
   const latestCustomers = await fetchLatestCustomers();
+=======
+import { LatestTransaction} from '@/app/lib/definitions';
+import { transactions } from '@/app/lib/placeholder-data';
+export default async function latestTransactions({
+  latestTransactions,
+}: {
+  latestTransactions: LatestTransaction[];
+}) {
+>>>>>>> 928a016 (asdasdasd)
   return (
     <div className="flex w-full flex-col md:col-span-4">
       <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
@@ -17,10 +27,17 @@ export default async function LatestCustomers(){
         {/* NOTE: comment in this code when you get to this point in the course */}
 
         <div className="bg-white px-6">
+<<<<<<< HEAD
           {latestCustomers.map((Customer, i) => {
             return (
               <div
                 key={Customer.id}
+=======
+          {latestTransactions.map((transaction, i) => {
+            return (
+              <div
+                key={transaction.id}
+>>>>>>> 928a016 (asdasdasd)
                 className={clsx(
                   'flex flex-row items-center justify-between py-4',
                   {
@@ -30,25 +47,41 @@ export default async function LatestCustomers(){
               >
                 <div className="flex items-center">
                   <Image
+<<<<<<< HEAD
                     src={Customer.image_url}
                     alt={`${Customer.name}'s profile picture`}
+=======
+                    src={transaction.image_url}
+                    alt={`${transaction.name}'s profile picture`}
+>>>>>>> 928a016 (asdasdasd)
                     className="mr-4 rounded-full"
                     width={32}
                     height={32}
                   />
                   <div className="min-w-0">
                     <p className="truncate text-sm font-semibold md:text-base">
+<<<<<<< HEAD
                       {Customer.name}
                     </p>
                     <p className="hidden text-sm text-gray-500 sm:block">
                       {Customer.email}
+=======
+                      {transaction.name}
+                    </p>
+                    <p className="hidden text-sm text-gray-500 sm:block">
+                      {transaction.total_paid}
+>>>>>>> 928a016 (asdasdasd)
                     </p>
                   </div>
                 </div>
                 <p
                   className={`${lusitana.className} truncate text-sm font-medium md:text-base`}
                 >
+<<<<<<< HEAD
                   {Customer.amount}
+=======
+                  {transaction.total_paid}
+>>>>>>> 928a016 (asdasdasd)
                 </p>
               </div>
             );

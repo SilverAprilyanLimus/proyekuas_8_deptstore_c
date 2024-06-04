@@ -9,6 +9,8 @@ import { fetchFilteredTransactions } from '@/app/lib/data';
 import { products } from '@/app/lib/placeholder-data';
 
 
+
+
 export default async function ProductsTable({
   products,
   query,
