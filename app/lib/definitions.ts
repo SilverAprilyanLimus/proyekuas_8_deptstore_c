@@ -81,6 +81,11 @@ export type InvoicesTable = {
   amount: number;
   status: 'pending' | 'paid';
 };
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
 export type TransactionsTable = {
   name: string;
   id: string;
@@ -102,6 +107,10 @@ export type TransactionsTableType = {
   image_url: string;
   total_paid: number;
 };
+<<<<<<< HEAD
+=======
+>>>>>>> 7834da5 (product, customer done. transaction, home need fix)
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
 
 export type CustomersTableType = {
   id: string;

@@ -20,7 +20,16 @@ export default async function ProductsTable({
   query:string;
   currentPage:number;
 }) {
+<<<<<<< HEAD
   // const products = await fetchFilteredTransactions(query, currentPage)
+=======
+<<<<<<< HEAD
+  const products = await fetchFilteredProducts(query, currentPage);
+
+=======
+  // const products = await fetchFilteredTransactions(query, currentPage)
+>>>>>>> 7834da5 (product, customer done. transaction, home need fix)
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
   return (
     <div className="w-full">
       <h1 className={`${lusitana.className} mb-8 text-xl md:text-2xl`}>

@@ -44,10 +44,28 @@ export default async function Page({
       <div className="relative z-10 opacity-80 p-6 md:p-12">
         <div className="flex w-full items-center justify-between">
         <h1 className={`${lusitana.className} text-2xl`}>Products</h1>
+<<<<<<< HEAD
+=======
+      </div>
+<<<<<<< HEAD
+      <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
+        <Search placeholder="Search products..." />
+        <CreateProduct />
+      </div>
+      <Suspense key={query + currentPage} fallback={<ProductsTableSkeleton />}>
+        <Table query={query} currentPage={currentPage} />
+      </Suspense>
+  
+      <div className="mt-5 flex w-full justify-center">
+=======
+      <div className="relative z-10 opacity-80 p-6 md:p-12">
+        <div className="flex w-full items-center justify-between">
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
         </div>
         <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
           {/* <CreateCustomer /> */}
         </div>
+<<<<<<< HEAD
         <Suspense key={query + currentPage} fallback={<ProductsTableSkeleton />}>
 <<<<<<< HEAD
           <Table products={products} query={query} currentPage={currentPage} />
@@ -56,6 +74,13 @@ export default async function Page({
 >>>>>>> e325b42 (dashboard benar dikit)
         </Suspense>
         {/* <div className="mt-5 flex w-full justify-center">
+=======
+        <Suspense key={query + currentPage} fallback={<CustomersTableSkeleton />}>
+          <Table products={products} query={query} currentPage={currentPage} />
+        </Suspense>
+        {/* <div className="mt-5 flex w-full justify-center">
+>>>>>>> 7834da5 (product, customer done. transaction, home need fix)
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
         <Pagination totalPages={totalPages} />
       </div> */}
       </div>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 import Search from '@/app/ui/search';
@@ -6,11 +7,24 @@ import {
   TransactionsTableType
 } from '@/app/lib/definitions';
 import { transactions } from '@/app/lib/placeholder-data';
+=======
+  import Image from 'next/image';
+  import { lusitana } from '@/app/ui/fonts';
+  import Search from '@/app/ui/search';
+  import {
+    FormattedTransactionsTable,
+    TransactionsTableType
+  } from '@/app/lib/definitions';
+  import { transactions } from '@/app/lib/placeholder-data';
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
 import { fetchFilteredTransactions } from '@/app/lib/data';
 import { Query } from '@vercel/postgres';
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
   export default async function TransactionsTable({
     transactions,
     query,
@@ -23,7 +37,11 @@ import { Query } from '@vercel/postgres';
     // const transactions = await fetchFilteredTransactions(query, currentPage);
     return (
       <div className="w-full">
+<<<<<<< HEAD
         <Search placeholder="Search Transactions..." />
+=======
+        <Search placeholder="Search customers..." />
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
         <div className="mt-6 flow-root">
           <div className="overflow-x-auto">
             <div className="inline-block min-w-full align-middle">
@@ -40,6 +58,7 @@ import { Query } from '@vercel/postgres';
                             <div className="flex items-center gap-3">
                               <p>{transactions.customer_id}</p>
                             </div>
+<<<<<<< HEAD
 =======
 
 
@@ -86,6 +105,21 @@ export default async function TransactionsTable({
                       </div>
                     </div>
 <<<<<<< HEAD
+=======
+                          </div>
+                          <p className="text-sm text-gray-500">
+                            {transactions.total_paid}
+                          </p>
+                          <p className="text-sm text-gray-500">
+                            {transactions.total_paid}
+                          </p>
+                          <p className="text-sm text-gray-500">
+                            {transactions.date}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
                   ))}
                 </div>
                 <table className="hidden min-w-full rounded-md text-gray-900 md:table">
@@ -128,6 +162,7 @@ export default async function TransactionsTable({
                     ))}
                   </tbody>
                 </table>
+<<<<<<< HEAD
 =======
                   </div>
                 ))}
@@ -173,14 +208,22 @@ export default async function TransactionsTable({
                   ))}
                 </tbody>
               </table>
+=======
+              </div>
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
             </div>
           </div>
         </div>
       </div>
+<<<<<<< HEAD
     </div>
   );
 }
 
+=======
+    );
+  }
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
 
 
 

@@ -13,7 +13,24 @@ import {
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
+<<<<<<< HEAD
 import { customers } from './placeholder-data';
+=======
+<<<<<<< HEAD
+
+const ITEMS_PER_PAGE = 6;
+
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
+export async function fetchRevenue() {
+  noStore();
+  // Add noStore() here to prevent the response from being cached.
+  // This is equivalent to in fetch(..., {cache: 'no-store'}).
+  console.log('Fetching revenue data...');
+    await new Promise((resolve) => setTimeout(resolve, 3000));
+<<<<<<< HEAD
+  try {
+=======
+=======
 export async function fetchRevenue() {
   noStore();
   // Add noStore() here to prevent the response from being cached.
@@ -21,11 +38,20 @@ export async function fetchRevenue() {
   console.log('Fetching revenue data...');
     await new Promise((resolve) => setTimeout(resolve, 3000));
   try {
+>>>>>>> 7834da5 (product, customer done. transaction, home need fix)
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
 
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
     console.log('Data fetch completed after 3 seconds.');
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 7834da5 (product, customer done. transaction, home need fix)
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
     return data.rows;
   } catch (error) {
     console.error('Database Error:', error);
@@ -97,12 +123,33 @@ export async function fetchCardData() {
   try {
     const transactions = await sql<TransactionsTable>`
       SELECT
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+        invoices.id,
+        invoices.amount,
+        invoices.date,
+        invoices.status,
+        customers.name,
+        customers.email,
+        customers.image_url
+      FROM invoices
+      JOIN customers ON invoices.customer_id = customers.id
+=======
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
       transactions.id,
       transactions.total_paid,
       transactions.date,
       customer.name,
+<<<<<<< HEAD
       FROM transactions
       JOIN customers ON transactions.customer_id = customers.id
+=======
+      product.name,
+      FROM transactions
+      JOIN customers ON transactions.customer_id = customers.id JOIN products ON transactions.product_id = products.id
+>>>>>>> 7834da5 (product, customer done. transaction, home need fix)
+>>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
       WHERE
         customers.name ILIKE ${`%${query}%`} OR
         transactions.total_paid::text ILIKE ${`%${query}%`} OR
