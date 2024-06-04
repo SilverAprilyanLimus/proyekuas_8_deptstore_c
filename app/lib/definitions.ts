@@ -32,7 +32,7 @@ export type transactions = {
 };
 
 export type Invoice = {
-  id: string;
+  id:string;
   customer_id: string;
   amount: number;
   date: string;
@@ -46,17 +46,12 @@ export type Revenue = {
   revenue: number;
 };
 
-export type LatestInvoice = {
+export type LatestTransaction= {
   id: string;
   name: string;
   image_url: string;
   email: string;
-  amount: string;
-};
-
-// The database returns a number for amount, but we later format it to a string with the formatCurrency function
-export type LatestInvoiceRaw = Omit<LatestInvoice, 'amount'> & {
-  amount: number;
+  total_paid: string;
 };
 
 export type InvoicesTable = {

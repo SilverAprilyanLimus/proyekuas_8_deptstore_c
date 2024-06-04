@@ -10,7 +10,7 @@ export default function Page() {
     <main className="relative inset-0 bg-gradient-to-r from-transparent to-black z-1 flex min-h-screen flex-col p-6">
       <div className="absolute inset-0 z-0">
         <Image
-          src="/bg-home.jpg"
+          src="/bg-home1.jpg"
           layout="fill"
           objectFit="cover"
           className="hidden md:block"
