@@ -2,8 +2,8 @@
 import Search from '@/app/ui/search';
 import Table from '@/app/ui/products/table';
 // import { CreateCustomer } from '@/app/ui/customers/buttons';
-import { kanit } from '@/app/ui/fonts';
-import { CustomersTableSkeleton } from '@/app/ui/skeletons';
+import { kanit,lusitana } from '@/app/ui/fonts';
+import { CustomersTableSkeleton, ProductsTableSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
 import { products} from '@/app/lib/placeholder-data';
 
@@ -38,11 +38,12 @@ export default async function Page({
       </div>
       <div className="relative z-10 opacity-80 p-6 md:p-12">
         <div className="flex w-full items-center justify-between">
+        <h1 className={`${lusitana.className} text-2xl`}>Products</h1>
         </div>
         <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
           {/* <CreateCustomer /> */}
         </div>
-        <Suspense key={query + currentPage} fallback={<CustomersTableSkeleton />}>
+        <Suspense key={query + currentPage} fallback={<ProductsTableSkeleton />}>
           <Table products={products} currentPage={currentPage} />
         </Suspense>
         {/* <div className="mt-5 flex w-full justify-center">
