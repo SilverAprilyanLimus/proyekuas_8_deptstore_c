@@ -29,7 +29,7 @@ export const generateYAxis = (revenue: Revenue[]) => {
   const topLabel = Math.ceil(highestRecord / 1000) * 1000;
 
   for (let i = topLabel; i >= 0; i -= 100000) {
-    yAxisLabels.push(formatCurrency(i / 1000 * 100000)); // i divided by 1000 and then multiplied back to format correctly
+    yAxisLabels.push(`Rp${i / 1000}K`); // i divided by 1000 and then multiplied back to format correctly
   }
 
   return { yAxisLabels, topLabel };
