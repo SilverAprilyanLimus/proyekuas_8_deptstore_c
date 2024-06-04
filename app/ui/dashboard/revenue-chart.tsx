@@ -14,7 +14,11 @@ export default async function RevenueChart() {
   const revenue = await fetchRevenue();
 <<<<<<< HEAD
 
+<<<<<<< HEAD
   const chartHeight = 350;
+=======
+  const chartHeight = 300;
+>>>>>>> 51c43f0 (revenue length)
 
   const { yAxisLabels, topLabel } = generateYAxis(revenue);
 
