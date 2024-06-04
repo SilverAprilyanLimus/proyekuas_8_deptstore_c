@@ -15,10 +15,14 @@ export default async function RevenueChart() {
 <<<<<<< HEAD
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const chartHeight = 350;
 =======
   const chartHeight = 300;
 >>>>>>> 51c43f0 (revenue length)
+=======
+  const chartHeight = 350;
+>>>>>>> 2f27de3 (revenue chart kurang mepet)
 
   const { yAxisLabels, topLabel } = generateYAxis(revenue);
 

@@ -31,10 +31,14 @@ export const generateYAxis = (revenue: Revenue[]) => {
 <<<<<<< HEAD
   for (let i = topLabel; i >= 0; i -= 100000) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     yAxisLabels.push(`Rp${i / 1000}K`); // i divided by 1000 and then multiplied back to format correctly
 =======
     yAxisLabels.push(formatCurrency(i / 1000 * 100000)); // i divided by 1000 and then multiplied back to format correctly
 >>>>>>> 928a016 (asdasdasd)
+=======
+    yAxisLabels.push(`Rp${i / 1000}K`); // i divided by 1000 and then multiplied back to format correctly
+>>>>>>> 2f27de3 (revenue chart kurang mepet)
   }
 =======
   for (let i = topLabel; i >= 0; i -= 100000) { // i divided by 1000 and then multiplied back to format correctly
