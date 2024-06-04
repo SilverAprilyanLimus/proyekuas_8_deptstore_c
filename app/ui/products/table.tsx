@@ -10,6 +10,7 @@ import { products } from '@/app/lib/placeholder-data';
 
 
 export default async function ProductsTable({
+  products,
   query,
   currentPage
 }: {
@@ -17,7 +18,7 @@ export default async function ProductsTable({
   query:string;
   currentPage:number;
 }) {
-  const products = await fetchFilteredTransactions(query, currentPage)
+  // const products = await fetchFilteredTransactions(query, currentPage)
   return (
     <div className="w-full">
       <h1 className={`${lusitana.className} mb-8 text-xl md:text-2xl`}>

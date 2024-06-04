@@ -74,11 +74,9 @@ export type TransactionsTable = {
   id: string;
   customer_id: string;
   products_id: string;
-  phone_number: string;
   total_paid: number;
   date: string;
   price: number;
-  bahan: string;
 };
 
 

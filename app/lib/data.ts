@@ -14,21 +14,16 @@ import {
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
 export async function fetchRevenue() {
+  noStore();
   // Add noStore() here to prevent the response from being cached.
   // This is equivalent to in fetch(..., {cache: 'no-store'}).
   console.log('Fetching revenue data...');
     await new Promise((resolve) => setTimeout(resolve, 3000));
   try {
-    // Artificially delay a response for demo purposes.
-    // Don't do this in production :)
-
-    // console.log('Fetching revenue data...');
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
 
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
     console.log('Data fetch completed after 3 seconds.');
-    // console.log('Data fetch completed after 3 seconds.');
 
     return data.rows;
   } catch (error) {
@@ -94,11 +89,12 @@ export async function fetchFilteredTransactions(
     const transactions = await sql<TransactionsTable>`
       SELECT
       transactions.id,
-      transactions.phone_number,
       transactions.total_paid,
       transactions.date,
+      customer.name,
+      product.name,
       FROM transactions
-      JOIN customers ON transactions.customer_id = customers.id
+      JOIN customers ON transactions.customer_id = customers.id JOIN products ON transactions.product_id = products.id
       WHERE
         customers.name ILIKE ${`%${query}%`} OR
         customers.email ILIKE ${`%${query}%`} OR

@@ -7,14 +7,17 @@
   } from '@/app/lib/definitions';
   import { transactions } from '@/app/lib/placeholder-data';
 import { fetchFilteredTransactions } from '@/app/lib/data';
+import { Query } from '@vercel/postgres';
 
 
   export default async function TransactionsTable({
     transactions,
+    query,
+    currentPage,
   }: {
     transactions : FormattedTransactionsTable[];
-    // query: string;
-    // currentPage: number;
+    query: string;
+    currentPage: number;
   }) {
     // const transactions = await fetchFilteredTransactions(query, currentPage);
     return (
@@ -79,7 +82,7 @@ import { fetchFilteredTransactions } from '@/app/lib/data';
                           </div>
                         </td>
                         <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
-                          {transaction.total_paid}
+                          {transaction.product_id}
                         </td>
                         <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
                           {transaction.total_paid}
