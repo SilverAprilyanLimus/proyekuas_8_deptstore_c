@@ -57,16 +57,28 @@ export async function fetchCardData() {
     // how to initialize multiple queries in parallel with JS.
     const transactionCountPromise = sql`SELECT COUNT(*) FROM transactions`;
     const customerCountPromise = sql`SELECT COUNT(*) FROM customers`;
+<<<<<<< HEAD
+=======
+
+>>>>>>> e325b42 (dashboard benar dikit)
 
     const data = await Promise.all([
       transactionCountPromise,
       customerCountPromise,
     ]);
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e325b42 (dashboard benar dikit)
     const numberOfTransactions = Number(data[0].rows[0].count ?? '0');
     const numberOfCustomers = Number(data[1].rows[0].count ?? '0');
     // const totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
     // const totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
+<<<<<<< HEAD
+=======
+
+>>>>>>> e325b42 (dashboard benar dikit)
 
     return {
       numberOfCustomers,
@@ -80,13 +92,8 @@ export async function fetchCardData() {
   }
 }
 
-const ITEMS_PER_PAGE = 6;
-export async function fetchFilteredTransactions(
-  query: string,
-  currentPage: number,
-) {
-  const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
+<<<<<<< HEAD
   try {
     const transactions = await sql<TransactionsTable>`
       SELECT
@@ -110,6 +117,8 @@ export async function fetchFilteredTransactions(
     throw new Error('Failed to fetch transactions.');
   }
 }
+=======
+>>>>>>> e325b42 (dashboard benar dikit)
 export async function fetchTransactionsPages(query: string) {
   noStore();
   try {
@@ -124,7 +133,7 @@ export async function fetchTransactionsPages(query: string) {
       transactions.date::text ILIKE ${`%${query}%`}
   `;
 
-  const totalPages = Math.ceil(Number(count.rows[0].count) / ITEMS_PER_PAGE);
+  const totalPages = Math.ceil(Number(count.rows[0].count) );
   return totalPages;
 
   } catch (error) {

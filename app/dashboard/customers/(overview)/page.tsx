@@ -40,7 +40,11 @@ export default async function Page({
       </div>
       <div className="relative z-10 opacity-80 p-6 md:p-12">
         <div className="flex w-full items-center justify-between">
+<<<<<<< HEAD
         <h1 className={`${lusitana.className} text-2xl`}>Products</h1>
+=======
+        <h1 className={`${lusitana.className} text-2xl`}>Customers</h1>
+>>>>>>> e325b42 (dashboard benar dikit)
         </div>
         <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
           {/* <CreateCustomer /> */}

@@ -2,8 +2,13 @@
 import Search from '@/app/ui/search';
 import Table from '@/app/ui/products/table';
 // import { CreateCustomer } from '@/app/ui/customers/buttons';
+<<<<<<< HEAD
 import { kanit, lusitana } from '@/app/ui/fonts';
 import { ProductsTableSkeleton } from '@/app/ui/skeletons';
+=======
+import { kanit,lusitana } from '@/app/ui/fonts';
+import { CustomersTableSkeleton, ProductsTableSkeleton } from '@/app/ui/skeletons';
+>>>>>>> e325b42 (dashboard benar dikit)
 import { Suspense } from 'react';
 import { products} from '@/app/lib/placeholder-data';
 
@@ -44,7 +49,11 @@ export default async function Page({
           {/* <CreateCustomer /> */}
         </div>
         <Suspense key={query + currentPage} fallback={<ProductsTableSkeleton />}>
+<<<<<<< HEAD
           <Table products={products} query={query} currentPage={currentPage} />
+=======
+          <Table products={products} currentPage={currentPage} />
+>>>>>>> e325b42 (dashboard benar dikit)
         </Suspense>
         {/* <div className="mt-5 flex w-full justify-center">
         <Pagination totalPages={totalPages} />
