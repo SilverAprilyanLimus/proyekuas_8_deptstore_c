@@ -1,15 +1,15 @@
 import { Revenue } from './definitions';
 
 export const formatCurrency = (amount: number) => {
-  return (amount / 1).toLocaleString('id-ID', {
+  return (amount / 100).toLocaleString('en-US', {
     style: 'currency',
-    currency: 'IDR',
+    currency: 'USD',
   });
 };
 
 export const formatDateToLocal = (
   dateStr: string,
-  locale: string = 'id-ID',
+  locale: string = 'en-US',
 ) => {
   const date = new Date(dateStr);
   const options: Intl.DateTimeFormatOptions = {
@@ -23,14 +23,14 @@ export const formatDateToLocal = (
 
 export const generateYAxis = (revenue: Revenue[]) => {
   // Calculate what labels we need to display on the y-axis
-  // based on the highest record and in 1000s
+  // based on highest record and in 1000s
   const yAxisLabels = [];
   const highestRecord = Math.max(...revenue.map((month) => month.revenue));
-  const topLabel = Math.ceil(highestRecord / 100000) * 100000;
+  const topLabel = Math.ceil(highestRecord / 1000) * 1000;
 
-  for (let i = topLabel; i >= 0; i -= 100000) { // i divided by 1000 and then multiplied back to format correctly
-  yAxisLabels.push(`${(i/1000).toLocaleString('id-ID')}K`);
-  } 
+  for (let i = topLabel; i >= 0; i -= 1000) {
+    yAxisLabels.push(`$${i / 1000}K`);
+  }
 
   return { yAxisLabels, topLabel };
 };
