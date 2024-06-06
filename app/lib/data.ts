@@ -9,10 +9,12 @@ import {
   User,
   Revenue,
   ProductsTableType,
+  LatestCustomer,
   
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
+import { customers } from './placeholder-data';
 export async function fetchRevenue() {
   noStore();
   // Add noStore() here to prevent the response from being cached.
@@ -31,46 +33,47 @@ export async function fetchRevenue() {
     throw new Error('Failed to fetch revenue data.');
   }
 }
-
-export async function fetchLatestInvoices() {
+export async function fetchLatestCustomers() {
   noStore();
+  try {
+    const data = await sql<LatestCustomer>`
+      SELECT customers.name, customers.image_url, customers.phone_number,
+      FROM customers
+      LIMIT 5`;
 
-  console.log('Fetching revenue data...');
-  await new Promise((resolve) => setTimeout(resolve, 3000));
-
-
-  // Kembalikan array kosong sebagai hasil
-  return [];
+    const lastestCustomers = data.rows
+    ;
+    return lastestCustomers;
+  } catch (error) {
+    console.error('Database Error:', error);
+    throw new Error('Failed to fetch the latest customers.');
+  }
 }
+
 export async function fetchCardData() {
   noStore();
   try {
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate
     // how to initialize multiple queries in parallel with JS.
-    const invoiceCountPromise = sql`SELECT COUNT(*) FROM invoices`;
+    const transactionCountPromise = sql`SELECT COUNT(*) FROM transactions`;
     const customerCountPromise = sql`SELECT COUNT(*) FROM customers`;
-    const invoiceStatusPromise = sql`SELECT
-         SUM(CASE WHEN status = 'paid' THEN amount ELSE 0 END) AS "paid",
-         SUM(CASE WHEN status = 'pending' THEN amount ELSE 0 END) AS "pending"
-         FROM invoices`;
 
     const data = await Promise.all([
-      invoiceCountPromise,
+      transactionCountPromise,
       customerCountPromise,
-      invoiceStatusPromise,
     ]);
 
-    const numberOfInvoices = Number(data[0].rows[0].count ?? '0');
+    const numberOfTransactions = Number(data[0].rows[0].count ?? '0');
     const numberOfCustomers = Number(data[1].rows[0].count ?? '0');
-    const totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
-    const totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
+    // const totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
+    // const totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
 
     return {
       numberOfCustomers,
-      numberOfInvoices,
-      totalPaidInvoices,
-      totalPendingInvoices,
+      numberOfTransactions,
+      // totalPaidInvoices,
+      // totalPendingInvoices,
     };
   } catch (error) {
     console.error('Database Error:', error);
@@ -92,14 +95,12 @@ export async function fetchFilteredTransactions(
       transactions.total_paid,
       transactions.date,
       customer.name,
-      product.name,
       FROM transactions
-      JOIN customers ON transactions.customer_id = customers.id JOIN products ON transactions.product_id = products.id
+      JOIN customers ON transactions.customer_id = customers.id
       WHERE
         customers.name ILIKE ${`%${query}%`} OR
-        customers.email ILIKE ${`%${query}%`} OR
         transactions.total_paid::text ILIKE ${`%${query}%`} OR
-        transactions.date::text ILIKE ${`%${query}%`} OR
+        transactions.date::text ILIKE ${`%${query}%`}
       ORDER BY transactions.date DESC
       LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
     `;
@@ -119,7 +120,7 @@ export async function fetchTransactionsPages(query: string) {
     JOIN products ON transactions.product_id = products.id
     WHERE
       customers.name ILIKE ${`%${query}%`} OR
-      product.name ILIKE ${`%${query}%`} OR
+      products.name ILIKE ${`%${query}%`} OR
       customers.phone_number ILIKE ${`%${query}%`} OR
       transactions.date::text ILIKE ${`%${query}%`}
   `;

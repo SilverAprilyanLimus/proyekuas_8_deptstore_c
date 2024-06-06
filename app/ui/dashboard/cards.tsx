@@ -5,12 +5,13 @@ import {
   InboxIcon,
 } from '@heroicons/react/24/outline';
 import { lusitana } from '@/app/ui/fonts';
+import { transactions } from '@/app/lib/placeholder-data';
 
 const iconMap = {
   collected: BanknotesIcon,
   customers: UserGroupIcon,
   pending: ClockIcon,
-  invoices: InboxIcon,
+  transactions: InboxIcon,
 };
 
 export default async function CardWrapper() {
@@ -37,7 +38,7 @@ export function Card({
 }: {
   title: string;
   value: number | string;
-  type: 'invoices' | 'customers' | 'pending' | 'collected';
+  type: 'transactions' | 'customers' | 'pending' | 'collected';
 }) {
   const Icon = iconMap[type];
 

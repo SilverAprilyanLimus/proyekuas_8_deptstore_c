@@ -2,7 +2,7 @@
 import Search from '@/app/ui/search';
 import Table from '@/app/ui/customers/table';
 // import { CreateCustomer } from '@/app/ui/customers/buttons';
-import { kanit } from '@/app/ui/fonts';
+import { kanit, lusitana } from '@/app/ui/fonts';
 import { CustomersTableSkeleton } from '@/app/ui/skeletons';
 import { Suspense } from 'react';
 import { customers } from '@/app/lib/placeholder-data';
@@ -40,6 +40,7 @@ export default async function Page({
       </div>
       <div className="relative z-10 opacity-80 p-6 md:p-12">
         <div className="flex w-full items-center justify-between">
+        <h1 className={`${lusitana.className} text-2xl`}>Products</h1>
         </div>
         <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
           {/* <CreateCustomer /> */}

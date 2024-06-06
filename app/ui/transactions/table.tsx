@@ -22,7 +22,7 @@ import { Query } from '@vercel/postgres';
     // const transactions = await fetchFilteredTransactions(query, currentPage);
     return (
       <div className="w-full">
-        <Search placeholder="Search customers..." />
+        <Search placeholder="Search Transactions..." />
         <div className="mt-6 flow-root">
           <div className="overflow-x-auto">
             <div className="inline-block min-w-full align-middle">
