@@ -10,6 +10,9 @@ import { fetchRevenue } from '@/app/lib/data';
 // https://www.chartjs.org/
 // https://airbnb.io/visx/
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 72076a0 (blom kelar)
 
 export default async function RevenueChart() {
   const revenue = await fetchRevenue();
@@ -29,6 +32,7 @@ export default async function RevenueChart() {
 
 =======
 
+<<<<<<< HEAD
   const chartHeight = 250;
 
   const { yAxisLabels, topLabel } = generateYAxis(revenue);
@@ -40,15 +44,24 @@ export default async function RevenueChart() {
 =======
 export default async function RevenueChart() { // Make component async, remove the props
   const revenue = await fetchRevenue(); // Fetch data inside the component
+=======
+>>>>>>> 72076a0 (blom kelar)
   const chartHeight = 350;
 
+  const { yAxisLabels, topLabel } = generateYAxis(revenue);
 
+<<<<<<< HEAD
    const { yAxisLabels, topLabel } = generateYAxis(revenue);
 
    if (!revenue || revenue.length === 0) {
      return <p className="mt-4 text-gray-400">No data available.</p>;
    }
 >>>>>>> 7834da5 (product, customer done. transaction, home need fix)
+=======
+  if (!revenue || revenue.length === 0) {
+    return <p className="mt-4 text-gray-400">No data available.</p>;
+  }
+>>>>>>> 72076a0 (blom kelar)
 
   return (
     <div className="w-full md:col-span-4">
@@ -57,12 +70,17 @@ export default async function RevenueChart() { // Make component async, remove t
       </h2>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
       <div className="rounded-xl bg-gray-50 p-4">
         <div className="sm:grid-cols-13 mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 gap-1 md:gap-4 border-4 border-blue-800">
 =======
    <div className="rounded-xl bg-gray-50 p-4">
         <div className="sm:grid-cols-13 mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 md:gap-4">
 >>>>>>> 7834da5 (product, customer done. transaction, home need fix)
+=======
+      <div className="rounded-xl bg-gray-50 p-4">
+        <div className="sm:grid-cols-13 mt-0 grid grid-cols-12 items-end gap-2 rounded-md bg-white p-4 gap-1 md:gap-4 border-4 border-blue-800">
+>>>>>>> 72076a0 (blom kelar)
           <div
             className="mb-6 hidden flex-col justify-between text-sm text-gray-400 sm:flex"
             style={{ height: `${chartHeight}px` }}

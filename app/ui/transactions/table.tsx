@@ -38,10 +38,14 @@ import { Query } from '@vercel/postgres';
     return (
       <div className="w-full">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <Search placeholder="Search Transactions..." />
 =======
         <Search placeholder="Search customers..." />
 >>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
+=======
+        <Search placeholder="Search Transactions..." />
+>>>>>>> cc14c59 (blom kelar)
         <div className="mt-6 flow-root">
           <div className="overflow-x-auto">
             <div className="inline-block min-w-full align-middle">

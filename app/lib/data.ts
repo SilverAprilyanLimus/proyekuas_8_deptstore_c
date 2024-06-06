@@ -7,9 +7,16 @@ import {
   TransactionsTable,
   User,
   Revenue,
+<<<<<<< HEAD
   ProductsTableType,
   LatestCustomer,
   
+=======
+<<<<<<< HEAD
+  CustomerForm,
+  ProductForm,
+  ProductsTable,
+>>>>>>> cc14c59 (blom kelar)
 } from './definitions';
 import { formatCurrency } from './utils';
 import { unstable_noStore as noStore } from 'next/cache';
@@ -31,6 +38,15 @@ export async function fetchRevenue() {
   try {
 =======
 =======
+=======
+  ProductsTableType,
+  LatestCustomer,
+  
+} from './definitions';
+import { formatCurrency } from './utils';
+import { unstable_noStore as noStore } from 'next/cache';
+import { customers } from './placeholder-data';
+>>>>>>> 72076a0 (blom kelar)
 export async function fetchRevenue() {
   noStore();
   // Add noStore() here to prevent the response from being cached.
@@ -61,6 +77,30 @@ export async function fetchRevenue() {
 export async function fetchLatestCustomers() {
   noStore();
   try {
+<<<<<<< HEAD
+    const data = await sql<LatestCustomer>`
+      SELECT customers.name, customers.image_url, customers.phone_number,
+      FROM customers
+=======
+<<<<<<< HEAD
+    const data = await sql<LatestInvoiceRaw>`
+      SELECT invoices.amount, customers.name, customers.image_url, customers.email, invoices.id
+      FROM invoices
+      JOIN customers ON invoices.customer_id = customers.id
+      ORDER BY invoices.date DESC
+>>>>>>> cc14c59 (blom kelar)
+      LIMIT 5`;
+
+    const lastestCustomers = data.rows
+    ;
+    return lastestCustomers;
+  } catch (error) {
+    console.error('Database Error:', error);
+<<<<<<< HEAD
+    throw new Error('Failed to fetch the latest customers.');
+=======
+    throw new Error('Failed to fetch the latest invoices.');
+=======
     const data = await sql<LatestCustomer>`
       SELECT customers.name, customers.image_url, customers.phone_number,
       FROM customers
@@ -72,21 +112,34 @@ export async function fetchLatestCustomers() {
   } catch (error) {
     console.error('Database Error:', error);
     throw new Error('Failed to fetch the latest customers.');
+>>>>>>> 72076a0 (blom kelar)
+>>>>>>> cc14c59 (blom kelar)
   }
 }
 
 export async function fetchCardData() {
   noStore();
   try {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+    const invoiceCountPromise = sql`SELECT COUNT(*) FROM invoices`;
+=======
+>>>>>>> cc14c59 (blom kelar)
     // You can probably combine these into a single SQL query
     // However, we are intentionally splitting them to demonstrate
     // how to initialize multiple queries in parallel with JS.
     const transactionCountPromise = sql`SELECT COUNT(*) FROM transactions`;
+<<<<<<< HEAD
     const customerCountPromise = sql`SELECT COUNT(*) FROM customers`;
 <<<<<<< HEAD
 =======
 
 >>>>>>> e325b42 (dashboard benar dikit)
+=======
+>>>>>>> 72076a0 (blom kelar)
+    const customerCountPromise = sql`SELECT COUNT(*) FROM customers`;
+>>>>>>> cc14c59 (blom kelar)
 
     const data = await Promise.all([
       transactionCountPromise,
@@ -94,17 +147,23 @@ export async function fetchCardData() {
     ]);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> e325b42 (dashboard benar dikit)
+=======
+>>>>>>> cc14c59 (blom kelar)
     const numberOfTransactions = Number(data[0].rows[0].count ?? '0');
     const numberOfCustomers = Number(data[1].rows[0].count ?? '0');
     // const totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
     // const totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 >>>>>>> e325b42 (dashboard benar dikit)
+=======
+>>>>>>> cc14c59 (blom kelar)
 
     return {
       numberOfCustomers,
@@ -142,19 +201,39 @@ export async function fetchCardData() {
       transactions.date,
       customer.name,
 <<<<<<< HEAD
+<<<<<<< HEAD
       FROM transactions
       JOIN customers ON transactions.customer_id = customers.id
 =======
       product.name,
+=======
+>>>>>>> cc14c59 (blom kelar)
       FROM transactions
+<<<<<<< HEAD
       JOIN customers ON transactions.customer_id = customers.id JOIN products ON transactions.product_id = products.id
 >>>>>>> 7834da5 (product, customer done. transaction, home need fix)
 >>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
       WHERE
         customers.name ILIKE ${`%${query}%`} OR
+<<<<<<< HEAD
         transactions.total_paid::text ILIKE ${`%${query}%`} OR
         transactions.date::text ILIKE ${`%${query}%`}
       ORDER BY transactions.date DESC
+=======
+        customers.email ILIKE ${`%${query}%`} OR
+        invoices.amount::text ILIKE ${`%${query}%`} OR
+        invoices.date::text ILIKE ${`%${query}%`} OR
+        invoices.status ILIKE ${`%${query}%`}
+      ORDER BY invoices.date DESC
+=======
+      JOIN customers ON transactions.customer_id = customers.id
+      WHERE
+        customers.name ILIKE ${`%${query}%`} OR
+        transactions.total_paid::text ILIKE ${`%${query}%`} OR
+        transactions.date::text ILIKE ${`%${query}%`}
+      ORDER BY transactions.date DESC
+>>>>>>> 72076a0 (blom kelar)
+>>>>>>> cc14c59 (blom kelar)
       LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
     `;
 
@@ -175,9 +254,22 @@ export async function fetchTransactionsPages(query: string) {
     JOIN products ON transactions.product_id = products.id
     WHERE
       customers.name ILIKE ${`%${query}%`} OR
+<<<<<<< HEAD
       products.name ILIKE ${`%${query}%`} OR
       customers.phone_number ILIKE ${`%${query}%`} OR
       transactions.date::text ILIKE ${`%${query}%`}
+=======
+<<<<<<< HEAD
+      customers.email ILIKE ${`%${query}%`} OR
+      invoices.amount::text ILIKE ${`%${query}%`} OR
+      invoices.date::text ILIKE ${`%${query}%`} OR
+      invoices.status ILIKE ${`%${query}%`}
+=======
+      products.name ILIKE ${`%${query}%`} OR
+      customers.phone_number ILIKE ${`%${query}%`} OR
+      transactions.date::text ILIKE ${`%${query}%`}
+>>>>>>> 72076a0 (blom kelar)
+>>>>>>> cc14c59 (blom kelar)
   `;
 
   const totalPages = Math.ceil(Number(count.rows[0].count) );

@@ -1,5 +1,6 @@
 
 import { Card } from '@/app/ui/dashboard/cards';
+<<<<<<< HEAD
 import CardWrapper from '@/app/ui/dashboard/cards';
 import RevenueChart from '@/app/ui/dashboard/revenue-chart';
 <<<<<<< HEAD

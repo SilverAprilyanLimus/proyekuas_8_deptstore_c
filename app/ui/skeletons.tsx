@@ -423,6 +423,10 @@ export function ProductsTableSkeleton() {
   );
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> cc14c59 (blom kelar)
 
 export function ProductsTableSkeleton() {
   return (
@@ -469,5 +473,9 @@ export function ProductsTableSkeleton() {
     </div>
   );
 }
+<<<<<<< HEAD
 =======
 >>>>>>> e325b42 (dashboard benar dikit)
+=======
+>>>>>>> 72076a0 (blom kelar)
+>>>>>>> cc14c59 (blom kelar)

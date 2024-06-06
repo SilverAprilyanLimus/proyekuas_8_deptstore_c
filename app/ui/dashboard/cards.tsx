@@ -8,10 +8,23 @@ import { lusitana } from '@/app/ui/fonts';
 import { transactions } from '@/app/lib/placeholder-data';
 
 const iconMap = {
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  collected: BanknotesIcon,     
+  pending: ClockIcon,            
+  transactions: InboxIcon,       
+  customers: UserGroupIcon,      
+=======
+>>>>>>> cc14c59 (blom kelar)
   collected: BanknotesIcon,
   customers: UserGroupIcon,
   pending: ClockIcon,
   transactions: InboxIcon,
+<<<<<<< HEAD
+=======
+>>>>>>> 72076a0 (blom kelar)
+>>>>>>> cc14c59 (blom kelar)
 };
 
 export default async function CardWrapper() {

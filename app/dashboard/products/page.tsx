@@ -1,9 +1,20 @@
 // import Pagination from '@/app/ui/customers/pagination';
 import Search from '@/app/ui/search';
 import Table from '@/app/ui/products/table';
+<<<<<<< HEAD
 // import { CreateCustomer } from '@/app/ui/customers/buttons';
 <<<<<<< HEAD
 import { kanit, lusitana } from '@/app/ui/fonts';
+=======
+<<<<<<< HEAD
+import { CreateProduct } from '@/app/ui/products/buttons';
+import { lusitana } from '@/app/ui/fonts';
+import { fetchProductsPages } from '@/app/lib/data';
+=======
+// import { CreateCustomer } from '@/app/ui/customers/buttons';
+import { kanit, lusitana } from '@/app/ui/fonts';
+>>>>>>> 72076a0 (blom kelar)
+>>>>>>> cc14c59 (blom kelar)
 import { ProductsTableSkeleton } from '@/app/ui/skeletons';
 =======
 import { kanit,lusitana } from '@/app/ui/fonts';
@@ -60,11 +71,16 @@ export default async function Page({
 =======
       <div className="relative z-10 opacity-80 p-6 md:p-12">
         <div className="flex w-full items-center justify-between">
+<<<<<<< HEAD
 >>>>>>> 3cfa1fb (product, customer done. transaction, home need fix)
+=======
+        <h1 className={`${lusitana.className} text-2xl`}>Products</h1>
+>>>>>>> cc14c59 (blom kelar)
         </div>
         <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
           {/* <CreateCustomer /> */}
         </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
         <Suspense key={query + currentPage} fallback={<ProductsTableSkeleton />}>
 <<<<<<< HEAD
@@ -76,6 +92,9 @@ export default async function Page({
         {/* <div className="mt-5 flex w-full justify-center">
 =======
         <Suspense key={query + currentPage} fallback={<CustomersTableSkeleton />}>
+=======
+        <Suspense key={query + currentPage} fallback={<ProductsTableSkeleton />}>
+>>>>>>> cc14c59 (blom kelar)
           <Table products={products} query={query} currentPage={currentPage} />
         </Suspense>
         {/* <div className="mt-5 flex w-full justify-center">
